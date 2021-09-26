@@ -53,6 +53,7 @@ def GoON(df):
         time.sleep(3)
         sys.exit()
         
-words(opened)
+if __name__="__main__":
+    words()
         
         
