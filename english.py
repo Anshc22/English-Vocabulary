@@ -4,21 +4,22 @@ import random
 import webbrowser,sys,pandas as pd
 from webutil import clear
 opened=False
+#Add your own path
 path=r"C:\Users\Welcome\Desktop\English.xlsx"
 
 
 def words(opened):
     chrome=webbrowser.get('"C:\Program Files\Google\Chrome\Application\chrome.exe" %s')
     clear.clear()
-    #Taskbar hovering
+    # Checking if chrome is already opened
     if opened == False:
         pyautogui.moveTo(717,1079)
         time.sleep(2)
-        # Chrome Location
+        # Chrome Location(Adjust accordingly)
         pyautogui.click(287,1057)
         time.sleep(2)
     
-    with open(r"C:\Users\Welcome\Desktop\PythonProjects\MyPythonScripts\words.txt","r") as f:
+    with open(r"words.txt","r") as f:
         words=f.readlines()
         words=[word.replace("\n","") for word in words]
         chosen_words=random.sample(words,5)
@@ -34,7 +35,7 @@ def words(opened):
     GoON(df)
 
 
-
+# Asking if the user wants to see another batch of 5 words
 def GoON(df):
     try:
         choice=input(f"Y:-Another 5 Words, N:- Exit\n").upper()
